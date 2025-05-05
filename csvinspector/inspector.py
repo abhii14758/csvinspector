@@ -33,8 +33,11 @@ class CSVInspector:
         output_dir = "inspection_output"
         os.makedirs(output_dir, exist_ok=True)
 
-        # Generate report
-        ReportGenerator.generate_markdown_report(output_dir, self.summary)
+        # # Generate report
+        # ReportGenerator.generate_markdown_report(output_dir, self.summary)
+
+        # Show report in terminal instead of writing file
+        ReportGenerator.print_report_to_terminal(self.summary)
 
         # Create visualizations
         Visualizer.plot_distributions(self.df, output_dir)
@@ -42,3 +45,14 @@ class CSVInspector:
         Visualizer.plot_missing_data(self.df, output_dir)
 
         return self.summary
+
+def main():
+    import sys
+
+    if len(sys.argv) < 2:
+        print("❌ Usage: csvinspector <path_to_csv>")
+        sys.exit(1)
+
+    file_path = sys.argv[1]
+    inspector = CSVInspector(file_path)
+    inspector.run_analysis()

@@ -1,12 +1,14 @@
+# -*- coding: utf-8 -*-
+
 from setuptools import setup, find_packages
 
 setup(
     name="csvinspector",
-    version="0.1.0",
+    version="0.1.1",
     author="Abhi Bhimani",
     author_email="abhibhimani14758@gmail.com",
     description="A simple library for preprocessing and EDA on CSV files",
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/abhii14758/csvinspector",
     packages=find_packages(),
